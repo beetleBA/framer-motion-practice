@@ -4,6 +4,8 @@ import preenchimentoImage from "./assets/Preenchimento generativo 1.png";
 export const LightBackgroundClouds = () => {
   return (
     <div className="fixed inset-0 h-screen">
+            <div className="z-3 absolute w-full top-0 h-75 bg-linear-to-t to-neutral-900/30" />
+
       <img
         src={cloudsImage}
         alt=""
