@@ -53,6 +53,11 @@ const BackgroundPortal = () => {
 };
 
 const ForegroundImage = () => {
+  const transition: Transition = {
+    duration: 0.4,
+    delay: 0.1,
+    ease: "easeInOut",
+  };
   return (
     <div className="absolute inset-0 z-10">
       <motion.img
