@@ -11,8 +11,8 @@ import card3Image from "./assets/image 33 (2).png";
 import watchDemoImage from "./assets/Polygon 2.png";
 
 const transition: Transition = {
-  duration: 0.3,
-  delay: 0.1,
+  duration: 0.4,
+  delay: 0.3,
   ease: "easeIn",
 };
 
@@ -36,8 +36,8 @@ export default function FirstPage({ scale }: { scale: MotionValue<number> }) {
 
 const BackgroundPortal = () => {
   const transition: Transition = {
-    duration: 0.4,
-    // delay: 0.1,
+    duration: 0.7,
+    delay: 0.1,
     ease: "easeOut",
   };
   return (
@@ -54,8 +54,8 @@ const BackgroundPortal = () => {
 
 const ForegroundImage = () => {
   const transition: Transition = {
-    duration: 0.4,
-    delay: 0.1,
+    duration: 0.6,
+    delay: 0.2,
     ease: "easeInOut",
   };
   return (
@@ -64,16 +64,16 @@ const ForegroundImage = () => {
         src={rightImage}
         alt=""
         className="absolute right-0 top-0 h-full object-cover z-1"
-        initial={{ x: 0 }}
-        animate={{ x: "60%" }}
+        initial={{ x: 0, scale: 1.5 }}
+        animate={{ x: "60%", scale: 1 }}
         transition={transition}
       />
       <motion.img
         src={leftImage}
         alt=""
         className="absolute left-0 top-0 h-full object-cover"
-        initial={{ x: 0 }}
-        animate={{ x: "-60%" }}
+        initial={{ x: 0, scale: 1.6 }}
+        animate={{ x: "-60%", scale: 1 }}
         transition={transition}
       />
     </div>
@@ -85,7 +85,7 @@ const MainText = () => {
     <div className="z-5 relative text-white flex flex-col gap-8 items-center">
       <motion.div
         className="viaoda-libre-regular uppercase"
-        initial={{ y: -50 }}
+        initial={{ y: -10 }}
         animate={{ y: 0 }}
         transition={transition}
       >
