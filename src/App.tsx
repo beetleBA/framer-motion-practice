@@ -35,12 +35,10 @@ export default function ScrollSlider() {
     [1, 0],
   );
 
-  const secondTextScale = useTransform(scrollYProgress, [0.75, 0.9], [0.2, 1]);
-
   const secondOpacity = useTransform(scrollYProgress, [1, 1], [0, 1]);
 
   return (
-    <div ref={containerRef} className="relative w-full h-[120vh]">
+    <div ref={containerRef} className="relative w-full h-[110vh]">
       <Header />
       <LightBackgroundClouds />
 
