@@ -5,7 +5,6 @@ import {
   type MotionValue,
 } from "motion/react";
 import cloudsImage from "./assets/clouds2.png";
-import arrImage from "./assets/Union.png";
 import { ArrowSVG } from "./ArrowSVG";
 
 type SecondPageProps = {

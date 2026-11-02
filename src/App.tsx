@@ -31,7 +31,7 @@ export default function ScrollSlider() {
 
   const firstOpacity = useTransform(
     scrollYProgress,
-    [0.65, 0.85], // 65% - полностью видна
+    [0.05, 0.09],
     [1, 0],
   );
 
