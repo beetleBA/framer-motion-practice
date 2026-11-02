@@ -1,4 +1,10 @@
-import { motion, MotionValue, type Transition } from "motion/react";
+import {
+  motion,
+  MotionValue,
+  useMotionValue,
+  useSpring,
+  type Transition,
+} from "motion/react";
 import rightImage from "./assets/1.png";
 import leftImage from "./assets/2.png";
 import bgImage from "./assets/bg1.png";
@@ -9,6 +15,7 @@ import card2Image from "./assets/image 33.png";
 import card3Image from "./assets/image 33 (2).png";
 
 import watchDemoImage from "./assets/Polygon 2.png";
+import { useEffect } from "react";
 
 const transition: Transition = {
   duration: 0.4,
@@ -40,12 +47,45 @@ const BackgroundPortal = () => {
     delay: 0.1,
     ease: "easeOut",
   };
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const smoothX = useSpring(mouseX, {
+    stiffness: 40,
+    damping: 20,
+  });
+
+  const smoothY = useSpring(mouseY, {
+    stiffness: 40,
+    damping: 20,
+  });
+
+  useEffect(() => {
+    const moveCursor = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 40;
+      const y = (e.clientY / window.innerHeight - 0.5) * 20;
+
+      mouseX.set(-x);
+      mouseY.set(-y);
+    };
+
+    window.addEventListener("mousemove", moveCursor);
+
+    return () => {
+      window.removeEventListener("mousemove", moveCursor);
+    };
+  }, [mouseX, mouseY]);
+
   return (
     <motion.div
       className="absolute inset-0 z-2"
       initial={{ scale: 2 }}
-      animate={{ scale: 1 }}
+      animate={{ scale: 1.2 }}
       transition={transition}
+      style={{
+        x: smoothX,
+        y: smoothY,
+      }}
     >
       <img src={bgImage} alt="" className=" w-full object-cover z-5" />
     </motion.div>

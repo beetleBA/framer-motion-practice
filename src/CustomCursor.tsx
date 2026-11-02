@@ -6,12 +6,12 @@ export const CustomCursor = () => {
   const mouseY = useMotionValue(-20);
 
   const smoothX = useSpring(mouseX, {
-    stiffness: 300,
+    stiffness: 200,
     damping: 30,
   });
 
   const smoothY = useSpring(mouseY, {
-    stiffness: 300,
+    stiffness: 200,
     damping: 30,
   });
 
