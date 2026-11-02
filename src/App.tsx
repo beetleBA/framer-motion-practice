@@ -19,7 +19,7 @@ export default function ScrollSlider() {
     offset: ["start start", "end end"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 0.4, 1], [1, 2, 4], {
+  const scale = useTransform(scrollYProgress, [0, 0.1], [1, 4], {
     ease: easeOut,
   });
 
@@ -35,10 +35,10 @@ export default function ScrollSlider() {
     [1, 0],
   );
 
-  const secondOpacity = useTransform(scrollYProgress, [1, 1], [0, 1]);
+  const secondOpacity = useTransform(scrollYProgress, [0, 0.05], [0, 1]);
 
   return (
-    <div ref={containerRef} className="relative w-full h-[110vh]">
+    <div ref={containerRef} className="relative w-full h-[350vh]">
       <Header />
       <LightBackgroundClouds />
 
